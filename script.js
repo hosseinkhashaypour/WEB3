@@ -1,5 +1,5 @@
 const productDetails = document.querySelector(".product-deatails");
-const categoryOption = document.getElementById("categoryha"); 
+const categoryOption = document.getElementById("categoryha");
 let showProducts = [];
 
 const Myapi = async () => {
@@ -53,22 +53,26 @@ function Basket(productTitle, productImg, productPrice) {
             <hr><br>
         </div>
     `;
-    const hrtag = `<hr><br>
-    <p1>Your Basket</p1>
-    `
     productDetails.insertAdjacentHTML("beforeend", buyedProduct);
-    //get Info to browser
-    localStorage.setItem("productInfo" , productTitle ) ;
-    localStorage.setItem("productImg" , productImg);
-    localStorage.setItem("productPrice" , productPrice)
-
-    //recive data from browser
-
-    let reciveTitle = localStorage.getItem("productInfo")
-    let reciveImg = localStorage.getItem("productImg")
-    let recivePrice = localStorage.getItem("productPrice")
+    
+    //save to local storage 
+    localStorage.setItem("ProductTitle", productTitle);
+    localStorage.setItem("ProductPrice", productPrice);
+    localStorage.setItem("ProductImg", productImg);
 }
 
-Myapi(); 
+window.addEventListener('DOMContentLoaded' , ()=>{
+    const productTitle = localStorage.getItem("ProductTitle");
+    const productPrice = localStorage.getItem("ProductPrice");
+    const productImg = localStorage.getItem("ProductImg");
+
+    if(productTitle && productPrice && productImg){
+        Basket(productTitle, productImg, productPrice)
+    } else if(productTitle && productPrice && productImg === undefined){
+        console.log("محصول آندیفایند");
+    }
+})
+
+Myapi();
 showData();
 
