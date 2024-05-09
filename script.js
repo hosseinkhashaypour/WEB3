@@ -20,7 +20,7 @@ const showData = (json) => {
         const selectedCategory = categoryOption.value;
         const filteredProducts = showProducts.filter(product => product.category === selectedCategory);
         productDetails.innerHTML = '';
-
+        categoryOption.addEventListener('change', showData);
         filteredProducts.forEach(product => {
             const productTitle = product.title;
             const productImg = product.image;
@@ -44,6 +44,9 @@ const showData = (json) => {
 };
 
 let basketItems = [];
+let totalPrice = 0;
+const totalSpan = document.createElement('span')
+
 
 function Basket(productTitle, productImg, productPrice) {
     const buyedProduct = `
@@ -60,17 +63,24 @@ function Basket(productTitle, productImg, productPrice) {
     localStorage.setItem("BasketItems", JSON.stringify(basketItems));
 }
 
+let itemGetCount = {};
 function loadBasket() {
     const getBasket = localStorage.getItem("BasketItems");
     if (getBasket) {
         basketItems = JSON.parse(getBasket);
         basketItems.forEach(basketItem => {
+            if (itemGetCount[basketItem.title] && itemGetCount[basketItem.title] > 1) {
+
+                console.log(`More than one getItem for ${basketItem.title}`);
+                return;
+            }
             Basket(basketItem.title, basketItem.img, basketItem.price);
+
+            itemGetCount[basketItem.title] = (itemGetCount[basketItem.title] || 0) + 2;
         });
     }
 }
+document.addEventListener('DOMContentLoaded', loadBasket);
 
-window.addEventListener('DOMContentLoaded', loadBasket);
-
-Myapi();
-showData();
+Myapi()
+showData()
