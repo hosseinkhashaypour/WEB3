@@ -70,14 +70,7 @@ function Basket(productTitle, productImg, productPrice) {
     // removeCart(productImg, productTitle,productPrice)
 }
 
-function removeCart(productTitle , _productPrice){
-    basketItems = basketItems.filter(item=> item.title !== productTitle)
-    localStorage.setItem("BasketItems")
-    JSON.stringify(basketItems)
 
-    const productDiv = document.getElementById(`remove_${productTitle}`.parentNode)
-    productDiv.remove()
-}
 
 let itemGetCount = {};
 function loadBasket() {
