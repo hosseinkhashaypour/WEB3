@@ -8,12 +8,12 @@ const Myapi = async () => {
         const json = await response.json();
         showProducts = json;
         console.log(showProducts);
-        return json
+        return json;
 
     } catch (error) {
         console.log("Error encountered:", error);
     }
-}
+};
 
 const showData = (json) => {
     try {
@@ -41,38 +41,36 @@ const showData = (json) => {
     } catch (error) {
         console.error("Error occurred:", error);
     }
-}
+};
+
+let basketItems = [];
 
 function Basket(productTitle, productImg, productPrice) {
     const buyedProduct = `
-        <div class="buyed" style = "height : 150%; background-color : whitesmoke;">
+        <div class="buyed" style="height: 150%; background-color: whitesmoke;">
             <img src="${productImg}" class="img-style">
-            <p2 style = "color : white; background-color : red;border-radius : 296px; padding : 10px 20px;font-weight : bold; ">Saved in your basket</p2>
-            <h1 class = "h-style">${productTitle}</h1>
+            <p2 style="color: white; background-color: red;border-radius: 296px; padding: 10px 20px;font-weight: bold;">Saved in your basket</p2>
+            <h1 class="h-style">${productTitle}</h1>
             <p1 class="price">${productPrice + "$"}</p1>
             <hr><br>
         </div>
     `;
     productDetails.insertAdjacentHTML("beforeend", buyedProduct);
-    
-    //save to local storage 
-    localStorage.setItem("ProductTitle", productTitle);
-    localStorage.setItem("ProductPrice", productPrice);
-    localStorage.setItem("ProductImg", productImg);
+    basketItems.push({ title: productTitle, img: productImg, price: productPrice });
+    localStorage.setItem("BasketItems", JSON.stringify(basketItems));
 }
 
-window.addEventListener('DOMContentLoaded' , ()=>{
-    const productTitle = localStorage.getItem("ProductTitle");
-    const productPrice = localStorage.getItem("ProductPrice");
-    const productImg = localStorage.getItem("ProductImg");
-
-    if(productTitle && productPrice && productImg){
-        Basket(productTitle, productImg, productPrice)
-    } else if(productTitle && productPrice && productImg === undefined){
-        console.log("محصول آندیفایند");
+function loadBasket() {
+    const getBasket = localStorage.getItem("BasketItems");
+    if (getBasket) {
+        basketItems = JSON.parse(getBasket);
+        basketItems.forEach(basketItem => {
+            Basket(basketItem.title, basketItem.img, basketItem.price);
+        });
     }
-})
+}
+
+window.addEventListener('DOMContentLoaded', loadBasket);
 
 Myapi();
 showData();
-
