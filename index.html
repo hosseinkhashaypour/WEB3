@@ -8,17 +8,25 @@
     <title>WEB3 | MFTE</title>
 </head>
 <body>
-    <select id="categoryha" onchange="showData()">
-        <option value="select">Cart</option>
-        <option value="men's clothing">Men's Clothing</option>
-        <option value="jewelery">Jewelery</option>
-        <option value="electronics">Electronics</option>
-        <option value="women's clothing">Women's Clothing</option>
-    </select>
+    <section id="top">
+        <ul>
+            <select id="categoryha" onchange="showData()"  style="z-index: 5;">
+                <option value="select">Cart</option>
+                <option value="men's clothing">Men's Clothing</option>
+                <option value="jewelery">Jewelery</option>
+                <option value="electronics">Electronics</option>
+                <option value="women's clothing">Women's Clothing</option>
+                <option value="All">All Products</option>
+            </select>
+            <img src="assests/shopping-basket.png" alt="basket" class="basket" onchange="myApi()">
+            <button id="removeAll" onclick="removeAll()">Clear all products</button>
+            <div class="spanPrice"></div>
+        </ul>
+    </section>
+    <div class="product-deatails" style="z-index: 5;">
 
-    <div class="product-deatails">
     </div>
-    <div class="spanPrice"></div>
+
     <script src="script.js"></script>
 </body>
 </html>
