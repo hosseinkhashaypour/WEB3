@@ -47,6 +47,7 @@ const showData = () => {
         console.error("Error occurred:", error);
     }
 };
+// نمایش همه محصولات
 // const showAllProducts = async ()=>{
 //     try {
 //         const ShowAllApi = await fetch('https://fakestoreapi.com/products')
