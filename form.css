@@ -1,0 +1,103 @@
+:root {
+  --fontirs: irs;
+  --fontbahman: bahman;
+  --fontlale: lale;
+  --fontaviny: aviny;
+  --color1: #04aa6d;
+  --color2: #6528e0;
+  --color3: rgb(7 112 112);
+  --color4: rgb(23, 240, 23);
+  --color5: #0c0025;
+  --color6: rgb(1, 1, 54);
+  --color7: #171615;
+  --color8: #1d1615;
+  --color9: #20211a;
+  --color10: #141514;
+  --color11: #0f0616;
+  --color12: #292827;
+  --glasswhite: rgba(255, 255, 255, 0.2);
+  --whiteneon: rgba(255, 255, 255, 0.9);
+  --bg-light: #eee;
+  --bg-dark: #444;
+  --bg-dark-2: #151515;
+}
+
+* {
+  box-sizing: border-box;
+  border: none;
+  outline: none;
+  font-weight: bold;
+  flex-direction: column;
+
+}
+
+body {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 100vh !important;
+  background: var(--bg-dark) !important;
+}
+
+#form-container > .form-main > form > header {
+  font-size: 30px;
+  color: white;
+}
+
+#form-container {
+  display: flex;
+  justify-self: center;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+  flex-direction: column;
+  background-color: var(--glasswhite);
+  padding: 10px 20px;
+  border-radius: 10px;
+  width: 30%;
+  height: 50%;
+  box-shadow: 5px 1px 3px  rgba(255, 255, 255, 0.9);
+}
+header {
+  display: flex;
+  justify-self: center;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+  text-align: center;
+}
+
+input{
+    padding: 10px;
+    border-radius: 10px;
+    color: black;
+    width: 150% !important;
+    margin-left: -20% !important;
+  flex-direction: column;
+}
+
+input::placeholder{
+    text-align: center;
+}
+
+button{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 50%;
+    border-radius: 296px !important;
+    padding: 10px 20px;
+    margin-left: 30% !important;
+}
+
+#err{
+    display: none;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+    color: white;
+    background-color: red;
+    border-radius: 20px;
+    padding: 5px;
+    text-align: center !important;
+}
