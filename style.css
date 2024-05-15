@@ -60,7 +60,7 @@ body {
   display: flex;
   height: 100vh;
   flex-direction: row;
-  background: #ffa07a;
+  background: linear-gradient(315deg, #ffffff, #d7e1ec);
   flex-wrap: wrap;
 }
 
@@ -344,8 +344,7 @@ span {
   color: black;
   font-family: Arial;
 }
-
-#remove{
+.remove{
   border-radius: 296px;
   padding: 10px 20px;
   background-color: red;
@@ -378,7 +377,7 @@ svg {
   background-color: #0e4166;
   background-image: linear-gradient(to bottom, rgba(14, 65, 102, 0.86), #0e4166);
 }
-#addBasket{
+.addBasket{
   width: 50%;
   display: flex;
   justify-content: center;
