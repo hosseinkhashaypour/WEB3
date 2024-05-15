@@ -350,10 +350,12 @@ span {
   background-color: red;
   color: white;
   font-weight: bold;
+  transition: transform 1s;
 }
-#remove:hover{
+.remove:hover{
   opacity: .5 !important;
   cursor: pointer;
+  transform: scale(1.1);
 }
 
 #removeAll{
@@ -388,7 +390,12 @@ svg {
   color: white;
   border-radius: 296px;
   margin-left: 25%;
+  transition: transform 1s;
 
+}
+.addBasket:hover{
+  opacity: .5;
+  transform: scale(1.1);
 }
 #addBasket:hover{
   opacity: .5;
