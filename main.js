@@ -24,7 +24,11 @@ const Myapi = async (username, password) => {
         });
 
         if (!response.ok) {
-            errorMessage.style.display = 'block';
+            Swal.fire({
+                icon: "error",
+                title: "خطا",
+                text: "اطلاعات وارد شده درست نیست",
+              });
             return;
         }
 
